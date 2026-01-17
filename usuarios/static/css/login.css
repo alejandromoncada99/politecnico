@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f8;
+}
+
+/* CONTENEDOR GENERAL */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* TARJETA */
+.login-card {
+    background: #ffffff;
+    width: 380px;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* LOGO LOGIN */
+.login-logo {
+    max-width: 140px;      /* tamaño pequeño y elegante */
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;   /* centrado y justo encima del título */
+}
+
+/* TITULOS */
+.login-card h2 {
+    margin: 10px 0 5px;
+    font-size: 20px;
+    color: #1f3b5b;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 25px;
+}
+
+/* CAMPOS */
+.field {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.field label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.field input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* BOTON */
+button {
+    width: 100%;
+    background: #1f3b5b;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #162c45;
+}
+
+/* ERROR */
+.error {
+    background: #f8d7da;
+    color: #842029;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+/* ===============================
+   CONTROL TOTAL LOGO LOGIN
+   =============================== */
+
+.login-logo-wrapper {
+    width: 120px !important;
+    margin: 0 auto 10px auto !important;
+}
+
+.login-logo-wrapper img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    display: block !important;
+}
+

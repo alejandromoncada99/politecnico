@@ -1,0 +1,52 @@
+{% load static %}
+{% block content %}
+<section class="hero">
+    
+    <h2>Formamos líderes en sostenibilidad</h2>
+    <p>
+        Educación técnica y tecnológica orientada a la protección
+        del medio ambiente y el desarrollo sostenible.
+    </p>
+</section>
+
+<header class="header">
+    
+        🌱 <strong>Politécnico Ambiental</strong>
+        
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </div>
+
+    <nav class="menu">
+        <a href="{% url 'home' %}">Inicio</a>
+        <a href="{% url 'sobre_nosotros' %}">Sobre Nosotros</a>
+        <a href="{% url 'redireccion_por_rol' %}">Cursos</a>
+        <a href="{% url 'contacto' %}">Contacto</a>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'login' %}">Campus Virtual</a>
+            <span class="user">
+                {{ user.first_name|default:user.username }}
+            </span>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn">Campus Virtual</a>
+        {% endif %}
+    </nav>
+    
+</header>
+<section class="cards">
+    <div class="card">
+        <h3>🌿 Gestión Ambiental</h3>
+        <p>Formación en manejo responsable de recursos naturales.</p>
+    </div>
+
+    <div class="card">
+        <h3>♻️ Desarrollo Sostenible</h3>
+        <p>Proyectos enfocados en impacto social y ambiental.</p>
+    </div>
+
+    <div class="card">
+        <h3>📚 Educación Técnica</h3>
+        <p>Programas con enfoque práctico y comunitario.</p>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,12 @@
+# Entorno virtual
+venv/
+*.pyc
+__pycache__/
+
+# Archivos de Django que no se suben
+db.sqlite3
+staticfiles/
+
+# IDE
+.idea/
+.vscode/

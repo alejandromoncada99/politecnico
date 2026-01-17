@@ -1,0 +1,40 @@
+{% load static %}
+
+{% block content %}
+<div class="dashboard-docente">
+
+
+  <header class="dashboard-header">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <h1>🌿 Bienvenido, Docente</h1>
+    <p>Educando para un futuro sostenible</p>
+  </header>
+
+  <section class="dashboard-mensaje">
+    <p>
+      Cada curso que impartes es una semilla para proteger la vida y el planeta 🐢
+    </p>
+  </section>
+
+  <section class="dashboard-cursos">
+    <h2>📚 Mis cursos</h2>
+
+    {% if cursos %}
+      <div class="cursos-grid">
+        {% for curso in cursos %}
+          <div class="curso-card">
+            <h3>{{ curso.titulo }}</h3>
+            <p>{{ curso.descripcion }}</p>
+            <span class="estado">
+              {{ curso.activo|yesno:"Activo,Inactivo" }}
+            </span>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No tienes cursos registrados aún.</p>
+    {% endif %}
+  </section>
+
+</div>
+{% endblock %}

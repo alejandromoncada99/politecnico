@@ -1,0 +1,40 @@
+
+{% load static %}
+{% block content %}
+<div class="dashboard-estudiante">
+
+  <header class="dashboard-header">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <h1>🌱 Bienvenido, Estudiante</h1>
+    <p>Aprender para cuidar la vida</p>
+  </header>
+
+  <section class="dashboard-mensaje">
+    <p>
+      El conocimiento es una herramienta para defender la naturaleza 🦜
+    </p>
+  </section>
+
+  <section class="dashboard-cursos">
+    <h2>📖 Cursos disponibles</h2>
+
+    {% if cursos %}
+      <div class="cursos-grid">
+        {% for curso in cursos %}
+          <div class="curso-card">
+            <h3>{{ curso.titulo }}</h3>
+            <p>{{ curso.descripcion }}</p>
+            <span class="docente">
+              👨‍🏫 {{ curso.docente.username }}
+            </span>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No hay cursos disponibles por ahora.</p>
+    {% endif %}
+  </section>
+
+</div>
+{% endblock %}
+

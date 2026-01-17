@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Plataforma Académica{% endblock %}</title>
+</head>
+<body>
+
+    <header>
+        <h1>Politécnico Ambiental</h1>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+        {% if user.is_authenticated %}
+            <p>
+                Bienvenido, <strong>{{ user.username }}</strong>
+                {{ user.perfil.rol }}|
+            </p>
+        {% else %}
+            <a href="{% url 'login' %}">Iniciar sesión</a>
+            <a href="{% url 'logout' %}">Salir</a>
+        {% endif %}
+
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                    {% if user.rol == 'docente' %}
+                        <li><a href="{% url 'crear_curso' %}">Crear curso</a></li>
+                    {% endif %}
+
+                    {% if user.rol == 'estudiante' %}
+                        <li><a href="{% url 'cursos' %}">Ver cursos</a></li>
+                    {% endif %}
+                {% endif %}
+            </ul>
+        </nav>
+        <hr>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% block content %}
+<h2>Cursos disponibles</h2>
+
+<ul>
+    {% for curso in cursos %}
+        <li>{{ curso.titulo }} — Docente: {{ curso.docente }}</li>
+    {% empty %}
+        <li>No hay cursos disponibles</li>
+    {% endfor %}
+</ul>
+<h2>Cursos</h2>
+<ul>
+    <li>Gestión Ambiental</li>
+    <li>Energías Renovables</li>
+    <li>Educación Ambiental</li>
+</ul>
+{% endblock %}
