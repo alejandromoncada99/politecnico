@@ -18,4 +18,4 @@ os.environ.setdefault(
     'DJANGO_SETTINGS_MODULE',
     'configuracion.configuraciones'
 )
-application = get_asgi_application()
+application = get_wsgi_application()
