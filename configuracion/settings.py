@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
+    'cloudinary_storage',
     
 ]
 
@@ -123,7 +125,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -135,3 +137,12 @@ LOGOUT_REDIRECT_URL = 'home'
 LOGIN_REDIRECT_URL = '/redireccion/'
 LOGOUT_REDIRECT_URL = '/'
 
+CLOUDINARY_URL = "cloudinary://899576896396821:ZlWJJxuojJAD5sIh0iVFJDonmxo@drcdgca6w"
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'drcdgca6w',
+    'API_KEY': '899576896396821',
+    'API_SECRET': 'ZlWJJxuojJAD5sIh0iVFJDonmxo',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

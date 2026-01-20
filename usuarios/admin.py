@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import Usuario, Curso
-
+from .models import CarouselSlide
 
 @admin.register(Usuario)
 class UsuarioAdmin(UserAdmin):
@@ -23,3 +23,8 @@ class UsuarioAdmin(UserAdmin):
 class CursoAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'docente', 'activo')
     list_filter = ('activo',)
+
+@admin.register(CarouselSlide)
+class CarouselSlideAdmin(admin.ModelAdmin):
+    list_display = ('title', 'order', 'is_active')
+    list_editable = ('order', 'is_active')

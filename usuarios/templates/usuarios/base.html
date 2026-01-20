@@ -4,12 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Plataforma Académica{% endblock %}</title>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+new Swiper('.hero-swiper', {
+  loop: true,
+  autoplay: {
+    delay: 5000,
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
+</script>
 </head>
 <body>
 
     <header>
         <h1>Politécnico Ambiental</h1>
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/carousel.css' %}">
 
         {% if user.is_authenticated %}
             <p>

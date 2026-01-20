@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .decorators import rol_requerido
 from .models import Curso
-
+from .models import CarouselSlide
 
 def home(request):
     return render(request, 'usuarios/home.html')
@@ -50,3 +50,6 @@ def redireccion_por_rol(request):
         return redirect('cursos')
     return redirect('home')
 
+def home(request):
+    slides = CarouselSlide.objects.filter(is_active=True)
+    return render(request, 'usuarios/home.html', {'slides': slides})

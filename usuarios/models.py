@@ -34,3 +34,17 @@ class Curso(models.Model):
 
     def __str__(self):
         return self.titulo
+
+class CarouselSlide(models.Model):
+    title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=200, blank=True)
+    promo_text = models.CharField(max_length=100, blank=True)
+    image = models.ImageField(upload_to='carousel/')
+    order = models.PositiveIntegerField(default=0)
+    is_active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return self.title
