@@ -51,5 +51,5 @@ def redireccion_por_rol(request):
     return redirect('home')
 
 def home(request):
-    slides = CarouselSlide.objects.filter(is_active=True)
+    slides = CarouselSlide.objects.all()
     return render(request, 'usuarios/home.html', {'slides': slides})

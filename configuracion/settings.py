@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +27,12 @@ SECRET_KEY = 'django-insecure-fi_-nq$#=9y%*z_hbzudtdh5%o&vro)#8fib%ud(zlg!-f_wnt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["politecnico-1.onrender.com"]
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    '.onrender.com',
+]
+
 
 
 
@@ -80,10 +87,12 @@ WSGI_APPLICATION = 'configuracion.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=os.getenv(
+            'DATABASE_URL',
+            default='postgres://alejandro@localhost:5432/politecnico_db'
+        )
+    )
 }
 
 
@@ -134,8 +143,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'usuarios.Usuario'
 LOGIN_REDIRECT_URL = 'redireccion_por_rol'
 LOGOUT_REDIRECT_URL = 'home'
-LOGIN_REDIRECT_URL = '/redireccion/'
-LOGOUT_REDIRECT_URL = '/'
 
 CLOUDINARY_URL = "cloudinary://899576896396821:ZlWJJxuojJAD5sIh0iVFJDonmxo@drcdgca6w"
 
